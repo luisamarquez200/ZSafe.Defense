@@ -1,0 +1,27 @@
+CREATE TABLE Zombies (
+Id INT PRIMARY KEY IDENTITY(1,1),
+Tipo NVARCHAR(100) NOT NULL,
+TiempoDisparo INT NOT NULL, 
+BalasNecesarias INT NOT NULL, 
+Puntaje INT NOT NULL,
+NivelAmenaza INT NOT NULL
+);
+
+CREATE TABLE Simulaciones(
+Id INT PRIMARY KEY IDENTITY(1,1),
+Fecha DATETIME NOT NULL DEFAULT GETDATE(), 
+TiempoDisponible INT NOT NULL, 
+BalasDisponibles INT NOT NULL
+);
+
+CREATE TABLE Eliminados (
+Id INT PRIMARY KEY IDENTITY(1,1),
+ZombieId INT NOT NULL, 
+SimulacionId INT NOT NULL, 
+PuntosObtenidos INT NOT NULL, 
+Timestamp DATETIME NOT NULL DEFAULT GETDATE(),
+FOREIGN KEY (ZombieId) REFERENCES Zombies(Id),
+FOREIGN KEY (SimulacionId) REFERENCES Simulaciones(Id)
+);
+
+

@@ -1,0 +1,8 @@
+CREATE TABLE SimulacionesLog(
+Id INT PRIMARY KEY IDENTITY(1,1),
+SimulationId INT,
+Accion VARCHAR(50),
+Fecha DATETIME DEFAULT GETDATE(), 
+Usuario NVARCHAR(100),
+Detalles NVARCHAR(500)
+);
