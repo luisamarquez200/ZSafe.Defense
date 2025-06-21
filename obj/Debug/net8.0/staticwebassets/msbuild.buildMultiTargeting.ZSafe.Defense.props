@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../build/ZSafe.Defense.props" />
+</Project>

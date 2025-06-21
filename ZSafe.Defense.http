@@ -1,0 +1,6 @@
+@ZSafe.Defense_HostAddress = http://localhost:5176
+
+GET {{ZSafe.Defense_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
