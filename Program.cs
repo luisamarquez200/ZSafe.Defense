@@ -18,9 +18,12 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
     {
-        policy.WithOrigins("http://localhost:4200")
-              .AllowAnyHeader()
-              .AllowAnyMethod();
+        policy.WithOrigins(
+            "http://localhost:4200",
+            "https://zsafe-frontend.vercel.app"
+        )
+        .AllowAnyHeader()
+        .AllowAnyMethod();
     });
 });
 
@@ -36,6 +39,7 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
+// Inicialización de datos si aplica
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
